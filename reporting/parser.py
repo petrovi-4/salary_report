@@ -24,20 +24,16 @@ def parse_csv(content: str) -> list[dict[str, str | float | int]]:
     if not lines:
         return []
 
-    # Заголовки
+    # Заголовки.
     raw_header = lines[0].split(",")
-    header = []
-    for h in raw_header:
-        header.append(h.strip())
+    header = [h.strip() for h in raw_header]
 
-    # Данные
+    # Данные.
     rows = lines[1:]
     normalized = []
     for line in rows:
         raw_values = line.split(",")
-        values = []
-        for v in raw_values:
-            values.append(v.strip())
+        values = [v.strip() for v in raw_values]
 
         data = dict(zip(header, values))
 
@@ -49,7 +45,7 @@ def parse_csv(content: str) -> list[dict[str, str | float | int]]:
                 break
 
         if rate is None:
-            continue  # Если ставка не найдена, пропускаем строку
+            continue  # Если ставка не найдена, пропускаем строку.
 
         hours = int(data["hours_worked"])
         payout = hours * rate
