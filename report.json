@@ -1,0 +1,80 @@
+{
+    "Marketing": {
+        "employees": [
+            {
+                "name": "Alice Johnson",
+                "hours": 160,
+                "rate": 50.0,
+                "payout": 8000.0
+            },
+            {
+                "name": "Henry Martin",
+                "hours": 150,
+                "rate": 35.0,
+                "payout": 5250.0
+            }
+        ],
+        "total_hours": 310,
+        "total_payout": 13250.0
+    },
+    "Design": {
+        "employees": [
+            {
+                "name": "Bob Smith",
+                "hours": 150,
+                "rate": 40.0,
+                "payout": 6000.0
+            },
+            {
+                "name": "Carol Williams",
+                "hours": 170,
+                "rate": 60.0,
+                "payout": 10200.0
+            }
+        ],
+        "total_hours": 320,
+        "total_payout": 16200.0
+    },
+    "HR": {
+        "employees": [
+            {
+                "name": "Grace Lee",
+                "hours": 160,
+                "rate": 45.0,
+                "payout": 7200.0
+            },
+            {
+                "name": "Ivy Clark",
+                "hours": 158,
+                "rate": 38.0,
+                "payout": 6004.0
+            },
+            {
+                "name": "Liam Harris",
+                "hours": 155,
+                "rate": 42.0,
+                "payout": 6510.0
+            }
+        ],
+        "total_hours": 473,
+        "total_payout": 19714.0
+    },
+    "Sales": {
+        "employees": [
+            {
+                "name": "Karen White",
+                "hours": 165,
+                "rate": 50.0,
+                "payout": 8250.0
+            },
+            {
+                "name": "Mia Young",
+                "hours": 160,
+                "rate": 37.0,
+                "payout": 5920.0
+            }
+        ],
+        "total_hours": 325,
+        "total_payout": 14170.0
+    }
+}
