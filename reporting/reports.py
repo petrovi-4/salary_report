@@ -49,21 +49,25 @@ def format_payout_text(data: dict) -> str:
     for department, content in data.items():
         lines.append(department)
         for emp in content["employees"]:
-            lines.append(f"{'':<16}{emp['name']:<20}{emp['hours']:<6}{int(emp['rate']):<5}${int(emp['payout'])}")
-        lines.append(f"{'':<16}{content['total_hours']:<26}${int(content['total_payout'])}\n")
+            lines.append(
+                f"{'':<16}{emp['name']:<20}{emp['hours']:<6}{int(emp['rate']):<5}${int(emp['payout'])}"
+            )
+        lines.append(
+            f"{'':<16}{content['total_hours']:<26}${int(content['total_payout'])}\n"
+        )
     return "\n".join(lines)
 
 
-if __name__ == "__main__":
-    from parser import parse_files
-
-    file_path_1 = "../files/data1.csv"
-    file_path_2 = "../files/data2.csv"
-    file_path_3 = "../files/data3.csv"
-
-    file_paths = [file_path_1, file_path_2, file_path_3]
-
-    employees = parse_files(file_paths)
-
-    pprint(generate_report(employees, "payout"))
-    # print(generate_report(employees, "text"))
+# if __name__ == "__main__":
+#     from parser import parse_files
+#
+#     file_path_1 = "../files/data1.csv"
+#     file_path_2 = "../files/data2.csv"
+#     file_path_3 = "../files/data3.csv"
+#
+#     file_paths = [file_path_1, file_path_2, file_path_3]
+#
+#     employees = parse_files(file_paths)
+#
+#     pprint(generate_report(employees, "payout"))
+#     # print(generate_report(employees, "text"))

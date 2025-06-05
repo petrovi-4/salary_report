@@ -83,11 +83,11 @@ def parse_files(file_path: list[str]) -> list[dict[str, str]]:
     return employees
 
 
-if __name__ == "__main__":
-    file_path_1 = "../files/data1.csv"
-    file_path_2 = "../files/data2.csv"
-    file_path_3 = "../files/data3.csv"
-
-    file_paths = [file_path_1, file_path_2, file_path_3]
-
-    pprint(parse_files(file_paths))
+# if __name__ == "__main__":
+#     file_path_1 = "../files/data1.csv"
+#     file_path_2 = "../files/data2.csv"
+#     file_path_3 = "../files/data3.csv"
+#
+#     file_paths = [file_path_1, file_path_2, file_path_3]
+#
+#     pprint(parse_files(file_paths))

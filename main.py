@@ -20,11 +20,11 @@ def main():
     if args.format == "json":
         if not args.output:
             raise ValueError("Для формата JSON необходимо указать путь через --output")
-
+        
         with open(args.output, "w", encoding="utf-8") as f:
             json.dump(report_output, f, ensure_ascii=False, indent=4)
         print(f"Отчет сохранен в файл {args.output}")
-
+        
     else:
         print(report_output)
 
