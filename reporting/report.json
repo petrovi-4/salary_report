@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Alice Johnson",
+        "department": "Marketing",
+        "hours": 160,
+        "rate": 50.0,
+        "payout": 8000.0
+    },
+    {
+        "name": "Bob Smith",
+        "department": "Design",
+        "hours": 150,
+        "rate": 40.0,
+        "payout": 6000.0
+    },
+    {
+        "name": "Carol Williams",
+        "department": "Design",
+        "hours": 170,
+        "rate": 60.0,
+        "payout": 10200.0
+    },
+    {
+        "name": "Grace Lee",
+        "department": "HR",
+        "hours": 160,
+        "rate": 45.0,
+        "payout": 7200.0
+    },
+    {
+        "name": "Henry Martin",
+        "department": "Marketing",
+        "hours": 150,
+        "rate": 35.0,
+        "payout": 5250.0
+    },
+    {
+        "name": "Ivy Clark",
+        "department": "HR",
+        "hours": 158,
+        "rate": 38.0,
+        "payout": 6004.0
+    },
+    {
+        "name": "Karen White",
+        "department": "Sales",
+        "hours": 165,
+        "rate": 50.0,
+        "payout": 8250.0
+    },
+    {
+        "name": "Liam Harris",
+        "department": "HR",
+        "hours": 155,
+        "rate": 42.0,
+        "payout": 6510.0
+    },
+    {
+        "name": "Mia Young",
+        "department": "Sales",
+        "hours": 160,
+        "rate": 37.0,
+        "payout": 5920.0
+    }
+]

@@ -1,28 +1,25 @@
-from pprint import pprint
-
 RATE_FIELDS = {"hourly_rate", "rate", "salary"}
 
 
 def parse_csv(content: str) -> list[dict[str, str | float | int]]:
     """
-    Разбирает CSV-содержимое в виде строки и возвращает список сотрудников.
+    Преобразует CSV-строку в список словарей с данными о сотрудниках.
 
-    Каждая строка CSV конвертируется в словарь с полями:
-    - name: имя сотрудника (str)
-    - department: отдел (str)
-    - hours: количество отработанных часов (int)
-    - rate: ставка оплаты (float)
-    - payout: итоговая выплата (float)
+    Каждая строка CSV интерпретируется как запись о сотруднике.
+    Поддерживаются поля с разными названиями для ставки (hourly_rate, rate, salary).
+    Вычисляется выплата (payout) как произведение часов и ставки.
 
     Параметры:
     content (str): Содержимое CSV-файла в виде строки.
 
     Возвращает:
-    list[dict[str, str | float | int]]: Список словарей с информацией о сотрудниках.
+    list[dict[str, str | float | int]]: Список сотрудников с полями name, department, hours, rate, payout.
     """
-    lines = content.strip().splitlines()
+    lines = content.strip().split("\n")
+    normalized = []
+
     if not lines:
-        return []
+        return normalized
 
     # Заголовки.
     raw_header = lines[0].split(",")
@@ -30,7 +27,6 @@ def parse_csv(content: str) -> list[dict[str, str | float | int]]:
 
     # Данные.
     rows = lines[1:]
-    normalized = []
     for line in rows:
         raw_values = line.split(",")
         values = [v.strip() for v in raw_values]
@@ -64,30 +60,27 @@ def parse_csv(content: str) -> list[dict[str, str | float | int]]:
 
 def parse_files(file_path: list[str]) -> list[dict[str, str]]:
     """
-    Обрабатывает список путей к CSV-файлам и объединяет данные из всех файлов.
+    Читает и объединяет данные сотрудников из нескольких CSV-файлов.
 
-    Каждый файл читается, парсится с помощью parse_csv,
-    и данные сотрудников добавляются в общий список.
+    Каждый файл обрабатывается функцией parse_csv.
+    Ошибки доступа к файлу обрабатываются и выводятся в консоль.
 
     Параметры:
-    file_path (list[str]): Список строк — путей к CSV-файлам.
+    file_path (list[str]): Пути к CSV-файлам.
 
     Возвращает:
-    list[dict[str, str | float | int]]: Объединённый список всех сотрудников.
+    list[dict[str, str | float | int]]: Список всех сотрудников из всех файлов.
     """
     employees = []
     for path in file_path:
-        with open(path, encoding="utf-8") as f:
-            content = f.read()
-            employees.extend(parse_csv(content))
+        try:
+            with open(path, encoding="utf-8") as f:
+                content = f.read()
+                parsed = parse_csv(content)
+                for emp in parsed:
+                    employees.append(emp)
+        except FileNotFoundError:
+            print(f"Файл не найден: {path}")
+        except PermissionError:
+            print(f"Нет доступа к файлу {path}")
     return employees
-
-
-# if __name__ == "__main__":
-#     file_path_1 = "../files/data1.csv"
-#     file_path_2 = "../files/data2.csv"
-#     file_path_3 = "../files/data3.csv"
-#
-#     file_paths = [file_path_1, file_path_2, file_path_3]
-#
-#     pprint(parse_files(file_paths))
